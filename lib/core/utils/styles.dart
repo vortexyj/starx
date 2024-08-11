@@ -1,40 +1,40 @@
 import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class Styles {
-  static const title39B = TextStyle(
+  static final title39B = GoogleFonts.poppins(
     fontSize: 39,
     fontWeight: FontWeight.bold,
   );
-  static const title31B = TextStyle(
+  static final title31B = GoogleFonts.poppins(
     fontSize: 31,
     fontWeight: FontWeight.bold,
   );
-  static const title25B = TextStyle(
+  static final title25B = GoogleFonts.poppins(
     fontSize: 25,
     fontWeight: FontWeight.bold,
     letterSpacing: 1.2,
   );
-  static const title25 = TextStyle(
+  static final title25 = GoogleFonts.poppins(
     fontSize: 25,
     fontWeight: FontWeight.normal,
   );
 
-  static const title20 = TextStyle(
+  static final title20 = GoogleFonts.poppins(
     fontSize: 20,
     fontWeight: FontWeight.normal,
   );
-  static const body16 = TextStyle(
+  static final body16 = GoogleFonts.poppins(
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
-  static const body14 = TextStyle(
+  static final body14 = GoogleFonts.poppins(
     fontSize: 14,
     fontWeight: FontWeight.normal,
   );
-  static const body12Gray = TextStyle(
+  static final body12Gray = GoogleFonts.poppins(
     fontSize: 12,
-    fontWeight: FontWeight.normal,
-    color: Color(656565),
+    fontWeight: FontWeight.w200,
   );
 }
 
