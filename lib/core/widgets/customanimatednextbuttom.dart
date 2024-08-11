@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'package:starx/core/utils/assets.dart'; // For rotation
+import 'package:starx/core/utils/assets.dart';
+import 'package:starx/core/utils/styles.dart'; // For rotation
 
 // Your custom animation class
 class MyCustomAnimation extends StatefulWidget {
@@ -66,14 +67,8 @@ class _MyCustomAnimationState extends State<MyCustomAnimation>
           Positioned(
             bottom: 50, // Adjust position as needed
             right: 30, // Adjust position as needed
-            child: Text(
-              'Next ➔',
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: Text('Next ➔',
+                style: Styles.body16.copyWith(color: Colors.white)),
           ),
       ],
     );
