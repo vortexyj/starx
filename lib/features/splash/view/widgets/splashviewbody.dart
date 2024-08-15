@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:starx/core/utils/approutes.dart';
 import 'package:starx/core/utils/assets.dart';
 import 'package:starx/core/utils/styles.dart';
 import 'package:starx/core/widgets/customanimatednextbuttom.dart';
@@ -12,11 +14,11 @@ class SplashViewBody extends StatelessWidget {
     return Scaffold(
         body: Stack(
       children: [
-        BackGroundImageSplash(),
+        const BackGroundImageSplash(),
         Center(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Text(
@@ -31,7 +33,13 @@ class SplashViewBody extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 20, right: 20),
                   child: Image.asset(AssetsData.logo)),
               Expanded(
-                child: MyCustomAnimation(), // Include your custom animation
+                child: GestureDetector(
+                    onTap: () {
+                      context.go(AppRouter.kloginPage);
+                    },
+                    child: const CustomAnimatedButton(
+                      order: 'Next ➔',
+                    )), // Include your custom animation
               ),
             ],
           ),

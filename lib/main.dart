@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:starx/features/splash/view/splashview.dart';
+import 'package:starx/core/utils/approutes.dart';
 
 void main() {
   runApp(const StarX());
@@ -10,6 +10,9 @@ class StarX extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: SplashView());
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
+      debugShowCheckedModeBanner: false,
+    );
   }
 }

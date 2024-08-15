@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-
+import 'dart:math'; // For rotation
 import 'package:starx/core/utils/assets.dart';
-import 'package:starx/core/utils/styles.dart'; // For rotation
+import 'package:starx/core/utils/styles.dart';
 
 // Your custom animation class
-class MyCustomAnimation extends StatefulWidget {
+class CustomAnimatedButton extends StatefulWidget {
+  final String order;
+  const CustomAnimatedButton({super.key, required this.order});
+
   @override
-  _MyCustomAnimationState createState() => _MyCustomAnimationState();
+  // ignore: library_private_types_in_public_api
+  _CustomAnimatedButtonState createState() => _CustomAnimatedButtonState();
 }
 
-class _MyCustomAnimationState extends State<MyCustomAnimation>
+class _CustomAnimatedButtonState extends State<CustomAnimatedButton>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -67,7 +70,7 @@ class _MyCustomAnimationState extends State<MyCustomAnimation>
           Positioned(
             bottom: 50, // Adjust position as needed
             right: 30, // Adjust position as needed
-            child: Text('Next ➔',
+            child: Text(widget.order,
                 style: Styles.body16.copyWith(color: Colors.white)),
           ),
       ],
