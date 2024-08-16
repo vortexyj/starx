@@ -4,7 +4,7 @@ import 'package:starx/features/profile/presentation/views/profilepage.dart';
 
 widgetViewer(int value) {
   if (value == 0) {
-    return const feedPage();
+    return const FeedPage();
   } else if (value == 4) {
     return const ProfilePage();
   } else {

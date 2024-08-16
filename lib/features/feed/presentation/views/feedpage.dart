@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:starx/features/feed/presentation/views/widgets/feedpagebody.dart';
 
-class feedPage extends StatelessWidget {
-  const feedPage({super.key});
+class FeedPage extends StatelessWidget {
+  const FeedPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('HelloFromFeedView')),
-    );
+    return const FeedPageBody();
   }
 }

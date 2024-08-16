@@ -15,7 +15,7 @@ const List<TabItem> items = [
     // title: 'Wishlist',
   ),
   TabItem(
-    icon: Icons.notification_add,
+    icon: Icons.favorite,
     // title: 'Cart',
   ),
   TabItem(

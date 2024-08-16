@@ -37,7 +37,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kFeedPage,
-        builder: (context, state) => const feedPage(),
+        builder: (context, state) => const FeedPage(),
       ),
     ],
   );
