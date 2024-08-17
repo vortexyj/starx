@@ -12,6 +12,7 @@ class FeedPageBody extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(left: 17.0, right: 17.0),
         child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(
               child: Column(

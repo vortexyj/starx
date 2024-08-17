@@ -5,4 +5,6 @@ class AssetsData {
   static const addPhoto = 'assets/images/addphoto.png';
   static const testPhoto = 'assets/images/testphoto.jpg';
   static const profiletestPhoto = 'assets/images/profiletest.jpg';
+  static const background2 = 'assets/images/background2.png';
+  static const background3 = 'assets/images/background3.png';
 }
