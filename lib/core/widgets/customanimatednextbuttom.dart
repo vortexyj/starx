@@ -53,7 +53,7 @@ class _CustomAnimatedButtonState extends State<CustomAnimatedButton>
           right: -100, // Offset so that only 75% of the image is visible
           child: Transform.rotate(
             angle: _animation.value,
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width *
                   0.75, // Adjust size to 75%
               height: MediaQuery.of(context).size.width *

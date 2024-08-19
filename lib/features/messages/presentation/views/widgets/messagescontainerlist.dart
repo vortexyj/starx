@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:starx/core/utils/approutes.dart';
 import 'package:starx/features/messages/presentation/views/widgets/messagecardcustom.dart';
 
 class MessagesContainerListSection extends StatelessWidget {
@@ -12,9 +15,13 @@ class MessagesContainerListSection extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemCount: 30,
       itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.only(top: 10.0),
-          child: MessageCard(),
+        return Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: GestureDetector(
+              onTap: () {
+                context.go(AppRouter.kChatPage);
+              },
+              child: const MessageCard()),
         );
       },
     );

@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:starx/features/chat/presentation/views/chatpage.dart';
 import 'package:starx/features/feed/presentation/views/feedpage.dart';
 import 'package:starx/features/navigationbar/presentation/views/navigationbarpage.dart';
 import 'package:starx/features/logins/presentation/views/loginpage.dart';
@@ -12,6 +13,7 @@ abstract class AppRouter {
   static const kNavigationbarPage = '/NavigationbarPage';
   static const kProfilePage = '/ProfilePage';
   static const kFeedPage = '/FeedPage';
+  static const kChatPage = '/ChatPage';
 
   static final router = GoRouter(
     routes: [
@@ -38,6 +40,10 @@ abstract class AppRouter {
       GoRoute(
         path: kFeedPage,
         builder: (context, state) => const FeedPage(),
+      ),
+      GoRoute(
+        path: kChatPage,
+        builder: (context, state) => const ChatPage(),
       ),
     ],
   );

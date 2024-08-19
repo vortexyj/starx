@@ -6,7 +6,6 @@ import 'package:starx/core/utils/colors.dart';
 import 'package:starx/core/utils/styles.dart';
 import 'package:starx/core/widgets/customanimatednextbuttom.dart';
 import 'package:starx/core/widgets/custombackgroundsplash.dart';
-import 'package:starx/core/widgets/customtextfieldlogins.dart';
 import 'package:starx/features/logins/presentation/views/widgets/logindatafeild.dart';
 
 class LoginPageBody extends StatelessWidget {

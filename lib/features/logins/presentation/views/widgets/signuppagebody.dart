@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:starx/core/utils/approutes.dart';
 import 'package:starx/core/utils/assets.dart';
-import 'package:starx/core/utils/colors.dart';
 import 'package:starx/core/utils/styles.dart';
 import 'package:starx/core/widgets/customanimatednextbuttom.dart';
 import 'package:starx/core/widgets/custombackgroundsplash.dart';
-import 'package:starx/core/widgets/customtextfieldlogins.dart';
 import 'package:starx/features/logins/presentation/views/widgets/addphotoinsignup.dart';
 import 'package:starx/features/logins/presentation/views/widgets/logindatafeild.dart';
 
@@ -43,7 +41,7 @@ class SignupPageBody extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      AddPhotoInSignUp(),
+                      const AddPhotoInSignUp(),
                       const SizedBox(
                         height: 20,
                       ),

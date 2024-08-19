@@ -17,17 +17,17 @@ class _NavigationBarBodyState extends State<NavigationBarBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomBarCreative(
-        top: 15,
-        bottom: 15,
+        top: 0,
+        bottom: 10,
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-        enableShadow: false,
+        enableShadow: true,
         items: items,
-        backgroundColor: Colors.white.withOpacity(0.21),
-        color: Colors.black,
+        backgroundColor: ColorStyle.white.withOpacity(0.4),
+        color: ColorStyle.black,
         colorSelected: ColorStyle.accentStroke,
         indexSelected: visit,
-        isFloating: true,
+        isFloating: false,
         highlightStyle: const HighlightStyle(
             sizeLarge: true,
             isHexagon: true,
