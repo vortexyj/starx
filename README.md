@@ -92,4 +92,7 @@ For any questions or feedback, please reach out to [yossefjehad@gmail.com].
 
 ---
 
+NOTE
+This project is still underdevelopment and i will update the read me as i continue my progress through it
+
 Thank you for checking out StarX! We hope you enjoy using the app and find it useful.
