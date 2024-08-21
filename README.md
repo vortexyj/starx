@@ -91,7 +91,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or feedback, please reach out to [your email address or contact information].
+For any questions or feedback, please reach out to [yossefjehad@gmail.com].
 
 ---
 
