@@ -22,7 +22,7 @@ StarX is a social media application built using Flutter. It leverages modern tec
 ## Screenshots
 
 ### Splash View
-![Splash View](https://drive.google.com/file/d/1kFMMx8ePSbXDaFPTuXaXxBbQsfxUd7Jb/view?usp=sharing)
+![Splash View](https://drive.google.com/file/d/1kFMMx8ePSbXDaFPTuXaXxBbQsfxUd7Jb/view?usp=drive_link)
 _The initial screen of the application._
 
 ### Login and Register Page
