@@ -42,7 +42,7 @@ _Manage and view your personal profile._
 _View and manage your direct messages._
 
 ### Chat Page
-![Chat Page](https://drive.google.com/uc?id1RZ7U0VlvOkH6Ob6eQNSu9UFdNUItAZzj)
+![Chat Page](https://drive.google.com/uc?id=1RZ7U0VlvOkH6Ob6eQNSu9UFdNUItAZzj)
 _Engage in real-time chats with your contacts._
 
 ## Installation
