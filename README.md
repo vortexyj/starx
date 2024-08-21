@@ -22,27 +22,27 @@ StarX is a social media application built using Flutter. It leverages modern tec
 ## Screenshots
 
 ### Splash View
-![Splash View](https://drive.google.com/uc?id=1kFMMx8ePSbXDaFPTuXaXxBbQsfxUd7Jb)
+<img src="https://drive.google.com/uc?id=1kFMMx8ePSbXDaFPTuXaXxBbQsfxUd7Jb" alt="Splash View" width="400"/>
 _The initial screen of the application._
 
 ### Login and Register Page
-![Login and Register Page](https://drive.google.com/uc?id=12siVdGwB_vGNvM0H880odhSXzg_43BSU )
+<img src="https://drive.google.com/uc?id=12siVdGwB_vGNvM0H880odhSXzg_43BSU" alt="Login and Register Page" width="400"/>
 _The login and registration forms for user authentication._
 
 ### News Feed
-![News Feed](https://drive.google.com/uc?id=1pZDxJXyJNUIxVL3BvlhNRKIf8N6x5NvL)
+<img src="https://drive.google.com/uc?id=1pZDxJXyJNUIxVL3BvlhNRKIf8N6x5NvL" alt="News Feed" width="400"/>
 _View posts, like and comment on them._
 
 ### Profile Page
-![Profile Page](https://drive.google.com/uc?id=1cnlkyYlOzJ60RnfY-TdMy3iS9anHTSLI)
+<img src="https://drive.google.com/uc?id=1cnlkyYlOzJ60RnfY-TdMy3iS9anHTSLI" alt="Profile Page" width="400"/>
 _Manage and view your personal profile._
 
 ### Messages Page
-![Messages Page](https://drive.google.com/uc?id=1tydTS_-hwqz1o5PGvXOZnmUoSqR9Q88L)
+<img src="https://drive.google.com/uc?id=1tydTS_-hwqz1o5PGvXOZnmUoSqR9Q88L" alt="Messages Page" width="400"/>
 _View and manage your direct messages._
 
 ### Chat Page
-![Chat Page](https://drive.google.com/uc?id=1RZ7U0VlvOkH6Ob6eQNSu9UFdNUItAZzj)
+<img src="https://drive.google.com/uc?id=1RZ7U0VlvOkH6Ob6eQNSu9UFdNUItAZzj" alt="Chat Page" width="400"/>
 _Engage in real-time chats with your contacts._
 
 ## Installation
@@ -96,4 +96,3 @@ For any questions or feedback, please reach out to [your email address or contac
 ---
 
 Thank you for checking out StarX! We hope you enjoy using the app and find it useful.
-
