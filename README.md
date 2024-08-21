@@ -85,9 +85,6 @@ Before running the app, make sure to configure Firebase for your project. Follow
 
 Contributions are welcome! If you'd like to contribute to StarX, please fork the repository and submit a pull request. Make sure to follow the coding standards and include tests for new features or bug fixes.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
