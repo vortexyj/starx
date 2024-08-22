@@ -5,7 +5,9 @@ class CustomTextFieldLogins extends StatelessWidget {
   const CustomTextFieldLogins({
     super.key,
     required this.hint,
+    required this.controller,
   });
+  final TextEditingController controller;
   final String hint;
 
   @override
@@ -32,6 +34,7 @@ class CustomTextFieldLogins extends StatelessWidget {
       ),
       child: Center(
         child: TextField(
+          controller: controller,
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: hint,

@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 import 'package:starx/features/logins/data/repos/registerrepo/registerrepo.dart';
@@ -14,7 +14,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     result.fold((err) {
       emit(RegisterFailureState(err));
     }, (user) {
-      emit(RegisterSuccessState(user));
+      emit(RegisterSuccessState());
     });
   }
 }

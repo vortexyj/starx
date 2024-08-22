@@ -24,9 +24,4 @@ class LoginRepoImp extends LoginRepo {
   Future<User?> getCurrentUser() async {
     return _firebaseAuth.currentUser;
   }
-
-  @override
-  Future<void> logOut() async {
-    await _firebaseAuth.signOut();
-  }
 }

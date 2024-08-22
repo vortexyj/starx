@@ -46,7 +46,9 @@ class LoginPageBody extends StatelessWidget {
                         height: 100,
                       ),
                       const LoginDataFeild(
-                          accountHint: 'Account', passwordHint: 'Password'),
+                        accountHint: 'Account',
+                        passwordHint: 'Password',
+                      ),
                       const SizedBox(
                         height: 20,
                       ),
