@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "194112293877",
+    "project_id": "starx-429cb",
+    "storage_bucket": "starx-429cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194112293877:android:aab957d96c1cb6a254eebc",
+        "android_client_info": {
+          "package_name": "com.example.starx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPh3o8aSXZl5EW5y6zgudNE-A8TxKtjwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
