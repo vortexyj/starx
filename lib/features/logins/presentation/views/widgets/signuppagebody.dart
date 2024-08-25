@@ -19,13 +19,16 @@ class SignupPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        if (state == RegisterSuccessState()) {
+        if (state is RegisterSuccessState) {
           context.go(AppRouter.kloginPage);
-        } else {
-          const SnackBar(
-            content: Text('Error'),
-            duration: Duration(seconds: 5),
-          );
+        } else if (state is RegisterFailureState) {
+          print('===============================');
+          print(state.err);
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Colors.black,
+            content: Text(state.err),
+            duration: const Duration(seconds: 5),
+          ));
         }
       },
       builder: (context, state) {
@@ -72,7 +75,11 @@ class SignupPageBody extends StatelessWidget {
                           ),
                           Expanded(
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                context.read<RegisterCubit>().fetchRegisterPage(
+                                    _emailController.text,
+                                    _passwordController.text);
+                              },
                               child:
                                   const CustomAnimatedButton(order: 'SignUp ➔'),
                             ),

@@ -9,8 +9,10 @@ import 'package:starx/core/widgets/custombackgroundsplash.dart';
 import 'package:starx/features/logins/presentation/views/widgets/logindatafeild.dart';
 
 class LoginPageBody extends StatelessWidget {
-  const LoginPageBody({super.key});
+  LoginPageBody({super.key});
 
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +47,11 @@ class LoginPageBody extends StatelessWidget {
                       const SizedBox(
                         height: 100,
                       ),
-                      const LoginDataFeild(
+                      LoginDataFeild(
                         accountHint: 'Account',
                         passwordHint: 'Password',
+                        emailController: _emailController,
+                        passwordController: _passwordController,
                       ),
                       const SizedBox(
                         height: 20,

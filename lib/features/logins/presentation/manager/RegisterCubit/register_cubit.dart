@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
+import 'package:starx/core/errors/failure.dart';
 import 'package:starx/features/logins/data/repos/registerrepo/registerrepo.dart';
 part 'register_state.dart';
 
@@ -12,7 +13,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     var result =
         await registerRepo.registerWithEmailAndPassword(email, password);
     result.fold((err) {
-      emit(RegisterFailureState(err));
+      emit(RegisterFailureState(err.errMessage));
     }, (user) {
       emit(RegisterSuccessState());
     });

@@ -1,7 +1,9 @@
 part of 'register_cubit.dart';
 
 @immutable
-sealed class RegisterState {}
+sealed class RegisterState {
+  get fetchRegisterPage => null;
+}
 
 final class RegisterInitialState extends RegisterState {}
 
