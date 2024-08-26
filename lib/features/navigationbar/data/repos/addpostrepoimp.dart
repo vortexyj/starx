@@ -26,6 +26,7 @@ class Addpostrepoimp extends Addpostrepo {
   @override
   Future<Either<Failure, String?>> SendToStorageAndGetLink() {
     //comment
+    print('hello world');
     // TODO: implement SendToStorageAndGetLink
     throw UnimplementedError();
   }
