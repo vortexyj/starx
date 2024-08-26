@@ -33,7 +33,14 @@ class CustomTextFieldLogins extends StatelessWidget {
         ],
       ),
       child: Center(
-        child: TextField(
+        child: TextFormField(
+          validator: (data) {
+            if (data!.isEmpty) {
+              print('field is reuqired');
+              return 'Field is required';
+            }
+            return null;
+          },
           controller: controller,
           decoration: InputDecoration(
             border: InputBorder.none,

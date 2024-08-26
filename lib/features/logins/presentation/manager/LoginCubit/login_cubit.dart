@@ -13,7 +13,7 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoadingState());
     var result = await loginRepo.logInWithEmailAndPassword(email, password);
     result.fold((err) {
-      emit(LoginFailureState(err));
+      emit(LoginFailureState(err.errMessage));
     }, (user) {
       emit(LoginSuccessState(user));
     });
