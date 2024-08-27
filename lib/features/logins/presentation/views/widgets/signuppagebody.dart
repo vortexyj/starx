@@ -22,8 +22,6 @@ class SignupPageBody extends StatelessWidget {
         if (state is RegisterSuccessState) {
           context.go(AppRouter.kloginPage);
         } else if (state is RegisterFailureState) {
-          print('===============================');
-          print(state.err);
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.black,
             content: Text(state.err),
@@ -51,18 +49,14 @@ class SignupPageBody extends StatelessWidget {
                       child: Column(
                         children: [
                           const SizedBox(
-                            height: 60,
+                            height: 120,
                           ),
                           Text(
                             'SignUP',
                             style: Styles.title39B,
                           ),
                           const SizedBox(
-                            height: 20,
-                          ),
-                          const AddPhotoInSignUp(),
-                          const SizedBox(
-                            height: 20,
+                            height: 80,
                           ),
                           LoginDataFeild(
                             accountHint: 'Account',
@@ -81,7 +75,7 @@ class SignupPageBody extends StatelessWidget {
                                     _passwordController.text);
                               },
                               child:
-                                  const CustomAnimatedButton(order: 'SignUp ➔'),
+                                  const CustomAnimatedButton(order: 'Next  ➔'),
                             ),
                           ),
                         ],

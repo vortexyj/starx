@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:starx/features/addpost/presentation/views/addpage.dart';
 import 'package:starx/features/feed/presentation/views/feedpage.dart';
 import 'package:starx/features/messages/presentation/views/messagespage.dart';
 import 'package:starx/features/profile/presentation/views/profilepage.dart';
@@ -13,6 +14,8 @@ widgetViewer(int value) {
     return const MessagesPage();
   } else if (value == 3) {
     return const TestPage();
+  } else if (value == 2) {
+    return const AddPage();
   } else {
     return const Center(child: Text('NoPageFound'));
   }

@@ -1,52 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-class TestPageBody extends StatefulWidget {
-  @override
-  _TestPageBodyState createState() => _TestPageBodyState();
-}
-
-class _TestPageBodyState extends State<TestPageBody> {
-  File? _image;
-  final ImagePicker _picker = ImagePicker();
-  String? _imageUrl;
-
-  Future<void> _pickImage() async {
-    try {
-      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-      setState(() {
-        _image = pickedFile != null ? File(pickedFile.path) : null;
-      });
-    } on PlatformException catch (e) {
-      // TODO
-      print("error is : ${e.toString()}");
-    }
-  }
-
+class Testappbody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Upload Image to Firebase Storage'),
+        title: Text('Add User to Firestore'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _image != null ? Image.file(_image!) : Text('No image selected.'),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _pickImage,
-              child: Text('Pick Image'),
-            ),
-            _imageUrl != null
-                ? Text('Download link: $_imageUrl')
-                : Text('No image uploaded yet.'),
-          ],
+        child: ElevatedButton(
+          onPressed: () {
+            UserModel newUser = UserModel(
+              email: 'example@example.com',
+              followers: 10,
+              following: 5,
+              photo: 'https://example.com/photo.jpg',
+              posts: 2,
+              username: 'exampleUser',
+            );
+
+            addUser(newUser);
+          },
+          child: Text('Add User'),
         ),
       ),
+    );
+  }
+
+  Future<void> addUser(UserModel user) async {
+    CollectionReference usersRef =
+        FirebaseFirestore.instance.collection('Users');
+
+    try {
+      await usersRef.add(user.toMap());
+      print('User added successfully');
+    } catch (e) {
+      print('Failed to add user: $e');
+    }
+  }
+}
+
+class UserModel {
+  String email;
+  int followers;
+  int following;
+  String photo;
+  int posts;
+  String username;
+
+  UserModel({
+    required this.email,
+    required this.followers,
+    required this.following,
+    required this.photo,
+    required this.posts,
+    required this.username,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'email': email,
+      'followers': followers,
+      'following': following,
+      'photo': photo,
+      'posts': posts,
+      'username': username,
+    };
+  }
+
+  factory UserModel.fromMap(Map<String, dynamic> map) {
+    return UserModel(
+      email: map['email'] ?? 'null',
+      followers: map['followers'] ?? 0,
+      following: map['following'] ?? 0,
+      photo: map['photo'] ?? 'null',
+      posts: map['posts'] ?? 0,
+      username: map['username'] ?? 'null',
     );
   }
 }
