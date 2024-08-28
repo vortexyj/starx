@@ -10,7 +10,7 @@ class AddPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddPostCubit(),
-      child: AddPageBody(),
+      child: const AddPageBody(),
     );
   }
 }

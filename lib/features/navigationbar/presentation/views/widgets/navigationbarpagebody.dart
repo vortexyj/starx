@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starx/core/utils/colors.dart';
 import 'package:starx/core/utils/navigationbarlist.dart';
 import 'package:starx/features/navigationbar/presentation/views/widgets/widgetview.dart';

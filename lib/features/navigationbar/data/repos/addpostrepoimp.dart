@@ -20,12 +20,11 @@ class Addpostrepoimp extends Addpostrepo {
 
       final ref = FirebaseStorage.instance.ref().child(path);
       UploadTask uploadTask = ref.putFile(image!);
-      final snapshot = await uploadTask!.whenComplete(() {});
+      final snapshot = await uploadTask.whenComplete(() {});
       final urlDownload = await snapshot.ref.getDownloadURL();
 
       return right(urlDownload);
     } on PlatformException catch (e) {
-      print("error is : ${e.toString()}");
       return left(LoginFailures(e.toString()));
     }
   }

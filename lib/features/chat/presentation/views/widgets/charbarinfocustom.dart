@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:starx/core/utils/approutes.dart';
 import 'package:starx/core/utils/assets.dart';
 import 'package:starx/core/utils/styles.dart';
-import 'package:starx/features/navigationbar/presentation/views/navigationbarpage.dart';
 import 'package:starx/features/profile/presentation/views/widgets/imagerotatedframe.dart';
 
 class CustomChatBarInfo extends StatelessWidget {

@@ -22,7 +22,10 @@ class LoginPageBody extends StatelessWidget {
         if (state is LoginSuccessState) {
           context.go(AppRouter.kNavigationbarPage);
         } else if (state is LoginFailureState) {
+          // ignore: avoid_print
           print('===============================');
+          // ignore: avoid_print
+
           print(state.err);
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: ColorStyle.accentStroke,

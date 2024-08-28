@@ -1,5 +1,7 @@
 import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:starx/core/utils/styles.dart';
 import 'package:starx/features/feed/presentation/views/widgets/custompostinfo.dart';
 import 'package:starx/features/feed/presentation/views/widgets/postactionpart.dart';
 
@@ -22,10 +24,29 @@ class PostBox extends StatelessWidget {
                 color: Colors.black.withOpacity(0.1),
               ),
             ),
-            Image.network(
+            CachedNetworkImage(
               height: double.infinity,
               width: double.infinity,
-              'https://firebasestorage.googleapis.com/v0/b/starx-429cb.appspot.com/o/images%2FDUJkeMCXcAAJNn1.jpg?alt=media&token=ed559502-42ad-4d2a-a152-d959f1fe3e54',
+              imageUrl:
+                  'https://firebasestoragex.googleapis.com/v0/b/starx-429cb.appspot.com/o/images%2FDUJkeMCXcAAJNn1.jpg?alt=media&token=b0421dd6-23f0-4598-b2a9-a76567e1e97e',
+              errorWidget: (context, url, error) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.error_outline,
+                      size: 70,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Error loading the image',
+                      style: Styles.body16,
+                    )
+                  ],
+                );
+              },
               fit: BoxFit.contain,
             ),
             const Padding(

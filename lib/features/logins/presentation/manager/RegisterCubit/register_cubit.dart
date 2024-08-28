@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:starx/features/logins/data/repos/registerrepo/registerrepo.dart';
 part 'register_state.dart';
 

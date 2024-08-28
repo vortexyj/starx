@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starx/features/navigationbar/presentation/views/widgets/navigationbarpagebody.dart';
 
 class NavigationBarpage extends StatelessWidget {

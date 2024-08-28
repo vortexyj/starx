@@ -4,13 +4,14 @@ import 'package:starx/core/utils/colors.dart';
 import 'package:starx/features/addpost/presentation/manager/addpostcubit/add_post_cubit.dart';
 
 class AddPageBody extends StatelessWidget {
-  AddPageBody({super.key});
+  const AddPageBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<AddPostCubit, AddPostState>(
       listener: (context, state) {
         if (state is AddPostSuccess) {
+          // ignore: avoid_print
           print('downloadlink: ${state.urlDownload}');
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             backgroundColor: ColorStyle.accentStroke,

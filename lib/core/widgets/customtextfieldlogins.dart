@@ -36,7 +36,6 @@ class CustomTextFieldLogins extends StatelessWidget {
         child: TextFormField(
           validator: (data) {
             if (data!.isEmpty) {
-              print('field is reuqired');
               return 'Field is required';
             }
             return null;

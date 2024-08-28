@@ -7,7 +7,6 @@ import 'package:starx/core/utils/styles.dart';
 import 'package:starx/core/widgets/customanimatednextbuttom.dart';
 import 'package:starx/core/widgets/custombackgroundsplash.dart';
 import 'package:starx/features/logins/presentation/manager/RegisterCubit/register_cubit.dart';
-import 'package:starx/features/logins/presentation/views/widgets/addphotoinsignup.dart';
 import 'package:starx/features/logins/presentation/views/widgets/logindatafeild.dart';
 
 class SignupPageBody extends StatelessWidget {
@@ -20,7 +19,8 @@ class SignupPageBody extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccessState) {
-          context.go(AppRouter.kloginPage);
+          GoRouter.of(context).go(AppRouter.kSetupPageName);
+          print('here from success state');
         } else if (state is RegisterFailureState) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.black,
