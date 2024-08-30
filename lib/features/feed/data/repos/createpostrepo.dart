@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:starx/core/errors/failure.dart';
+import 'package:starx/features/feed/data/model/postmodel.dart';
 
-abstract class Addpostrepo {
-  Future<Either<Failure, dynamic>> addPhoto(
-      int comments, int likes, int shares);
+abstract class CreatPostRepo {
+  Future<Either<Failure, PostModel>> loadPost();
   // Future<Either<Failure, String>> sendToStorageAndGetLink();
 }

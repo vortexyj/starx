@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:starx/core/utils/assets.dart';
 import 'package:starx/core/utils/styles.dart';
 import 'package:starx/features/feed/presentation/views/widgets/customappbar.dart';
-import 'package:starx/features/feed/presentation/views/widgets/postsection.dart';
+import 'package:starx/features/feed/presentation/views/widgets/custompostlist.dart';
 
 class FeedPageBody extends StatelessWidget {
   const FeedPageBody({super.key});
@@ -40,17 +40,7 @@ class FeedPageBody extends StatelessWidget {
                   ),
                 ),
                 //scrollpostBoxList
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      return const Padding(
-                        padding: EdgeInsets.only(bottom: 8.0),
-                        child: PostBox(),
-                      ); // Replace this with your item widget
-                    },
-                    childCount: 30, // Number of items in the list
-                  ),
-                ),
+                const CustomSilverList(),
               ],
             ),
           ),

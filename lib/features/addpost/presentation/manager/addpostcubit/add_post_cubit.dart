@@ -6,9 +6,9 @@ part 'add_post_state.dart';
 class AddPostCubit extends Cubit<AddPostState> {
   AddPostCubit() : super(AddPostInitial());
 
-  Future<void> fetchAddPhoto() async {
+  Future<void> fetchAddPhoto(int comments, int likes, int shares) async {
     emit(AddPostLoading());
-    var result = await Addpostrepoimp().addPhoto();
+    var result = await Addpostrepoimp().addPhoto(comments, likes, shares);
     result.fold(
       (failure) {
         emit(AddPostFailure(failure.errMessage));

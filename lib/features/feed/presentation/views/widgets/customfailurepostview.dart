@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:starx/core/utils/assets.dart';
@@ -6,24 +7,13 @@ import 'package:starx/core/utils/styles.dart';
 import 'package:starx/features/feed/presentation/views/widgets/custompostinfo.dart';
 import 'package:starx/features/feed/presentation/views/widgets/postactionpart.dart';
 
-class PostBox extends StatelessWidget {
-  const PostBox({
+class FailurePostView extends StatelessWidget {
+  const FailurePostView({
     super.key,
-    required this.userName,
-    required this.date,
-    required this.image,
-    required this.likesNumber,
-    required this.commentsNumber,
-    required this.sharesNumber,
-    required this.imageUrl,
+    required this.err,
   });
-  final String userName;
-  final String date;
-  final String image;
-  final int likesNumber;
-  final int commentsNumber;
-  final int sharesNumber;
-  final String imageUrl;
+  final String err;
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -41,7 +31,8 @@ class PostBox extends StatelessWidget {
             CachedNetworkImage(
               height: double.infinity,
               width: double.infinity,
-              imageUrl: imageUrl,
+              imageUrl:
+                  'https://firebasestoragex.googleapis.com/v0/b/starx-429cb.appspot.com/o/images%2FDUJkeMCXcAAJNn1.jpg?alt=media&token=b0421dd6-23f0-4598-b2a9-a76567e1e97e',
               errorWidget: (context, url, error) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +45,7 @@ class PostBox extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      'Error loading the image',
+                      err,
                       style: Styles.body16,
                     )
                   ],
@@ -65,21 +56,19 @@ class PostBox extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(15.0),
               child: Center(
-                child: Column(
-                  children: [
-                    PostInfo(
-                      userName: 'youssefjehad',
-                      date: '2 days ago',
-                      profileImage: AssetsData.testPhoto,
-                    ),
-                    Spacer(),
-                    PostActionsPart(
-                      likesNumber: 120,
-                      commentsNumber: 20,
-                      sharesNumber: 4,
-                    )
-                  ],
-                ),
+                child: Column(children: [
+                  PostInfo(
+                    userName: 'UserName',
+                    date: 'days ago',
+                    profileImage: AssetsData.testPhoto,
+                  ),
+                  Spacer(),
+                  PostActionsPart(
+                    likesNumber: 000,
+                    commentsNumber: 00,
+                    sharesNumber: 0,
+                  )
+                ]),
               ),
             )
           ],

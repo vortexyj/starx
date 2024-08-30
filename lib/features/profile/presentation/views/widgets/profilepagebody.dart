@@ -20,7 +20,7 @@ class ProfilePageBody extends StatelessWidget {
                 Image.asset(AssetsData.background2),
                 const Center(
                   child: Padding(
-                    padding: EdgeInsets.only(left: 17.0, right: 17.0),
+                    padding: EdgeInsets.only(left: 17.0, right: 17.0, top: 5),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [

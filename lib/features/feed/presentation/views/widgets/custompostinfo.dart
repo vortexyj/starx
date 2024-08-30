@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:starx/core/utils/assets.dart';
 import 'package:starx/core/utils/colors.dart';
 import 'package:starx/core/utils/styles.dart';
 
 class PostInfo extends StatelessWidget {
   const PostInfo({
     super.key,
+    required this.userName,
+    required this.date,
+    required this.profileImage,
   });
-
+  final String userName;
+  final String date;
+  final String profileImage;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,7 +21,7 @@ class PostInfo extends StatelessWidget {
           width: 40,
           child: ClipOval(
             child: Image.asset(
-              AssetsData.profiletestPhoto,
+              profileImage,
               fit: BoxFit.fill,
             ),
           ),
@@ -29,11 +33,11 @@ class PostInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Youssef Jehad',
+              userName,
               style: Styles.body14.copyWith(color: ColorStyle.white),
             ),
             Text(
-              '2 hrs ago',
+              date,
               style: Styles.body12Gray.copyWith(color: ColorStyle.white),
             )
           ],

@@ -13,7 +13,6 @@ import 'package:starx/core/widgets/customanimatednextbuttom.dart';
 import 'package:starx/core/widgets/custombackgroundsplash.dart';
 import 'package:starx/core/widgets/customtextfieldlogins.dart';
 import 'package:starx/features/logins/presentation/manager/SetupCubit/setup_cubit_cubit.dart';
-import 'package:starx/features/logins/presentation/views/widgets/addphotoinsignup.dart';
 
 // ignore: must_be_immutable
 class SetupPagebody extends StatelessWidget {
@@ -65,16 +64,16 @@ class SetupPagebody extends StatelessWidget {
                           const SizedBox(
                             height: 70,
                           ),
-                          GestureDetector(
-                            onTap: () async {
-                              getDownloadURL();
-                              uRL = await getDownloadURL();
-                            },
-                            child: const AddPhotoInSignUp(),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
+                          // GestureDetector(
+                          //   onTap: () async {
+                          //     getDownloadURL();
+                          //     uRL = await getDownloadURL();
+                          //   },
+                          //   child: const AddPhotoInSignUp(),
+                          // ),
+                          // const SizedBox(
+                          //   height: 20,
+                          // ),
                           Opacity(
                             opacity: 0.88,
                             child: CustomTextFieldLogins(
@@ -84,24 +83,50 @@ class SetupPagebody extends StatelessWidget {
                           ),
                           Expanded(
                             child: GestureDetector(
-                              onTap: () {
-                                // final String email =
-                                //     GoRouterState.of(context).extra! as String;
-                                // Get the current user
-                                User? user = FirebaseAuth.instance.currentUser;
+                              onTap: () async {
+                                // Check if URL is obtained successfully
+                                uRL = await getDownloadURL();
 
-                                // Get the user's email
-                                String? email = user?.email;
-                                context.read<SetupCubitCubit>().fetchSetupPage(
-                                    'lololol.jpg',
-                                    _passwordController.text,
-                                    email!,
-                                    0,
-                                    0,
-                                    0);
+                                if (uRL != null && uRL!.isNotEmpty) {
+                                  // Get the current user
+                                  User? user =
+                                      FirebaseAuth.instance.currentUser;
+
+                                  // Get the user's email
+                                  String? email = user?.email;
+
+                                  if (email != null) {
+                                    context
+                                        .read<SetupCubitCubit>()
+                                        .fetchSetupPage(
+                                          uRL!,
+                                          _passwordController.text,
+                                          email,
+                                          0,
+                                          0,
+                                          0,
+                                        );
+                                  } else {
+                                    // Handle error: Email is null
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content:
+                                            Text('Error: Email not found.'),
+                                      ),
+                                    );
+                                  }
+                                } else {
+                                  // Handle error: URL is null or empty
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text(
+                                          'Error: Unable to get download URL.'),
+                                    ),
+                                  );
+                                }
                               },
-                              child:
-                                  const CustomAnimatedButton(order: 'Next  ➔'),
+                              child: const CustomAnimatedButton(
+                                  order: 'Add PFP  ➔'),
                             ),
                           ),
                         ],

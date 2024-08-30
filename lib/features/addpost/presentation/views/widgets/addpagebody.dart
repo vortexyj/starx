@@ -37,17 +37,11 @@ class AddPageBody extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  context.read<AddPostCubit>().fetchAddPhoto();
+                  context.read<AddPostCubit>().fetchAddPhoto(0, 0, 0);
                 },
-                child: const Text('Pick Image'),
+                child: const Text('upload Image'),
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  context.read<AddPostCubit>().fetchAddPhoto();
-                },
-                child: const Text('Upload Image'),
-              ),
             ],
           ),
         ),
