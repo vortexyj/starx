@@ -4,7 +4,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:starx/core/utils/assets.dart';
-import 'package:starx/core/utils/styles.dart';
 import 'package:starx/features/feed/presentation/views/widgets/custompostinfo.dart';
 import 'package:starx/features/feed/presentation/views/widgets/postactionpart.dart';
 

@@ -22,9 +22,9 @@ class CustomSilverList extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: PostBox(
-                    userName: 'Youssefjehad',
+                    userNamee: state.data.userName,
                     date: '2hr ago',
-                    image: AssetsData.profiletestPhoto,
+                    image: state.data.image,
                     likesNumber: state.data.likes,
                     commentsNumber: state.data.comments,
                     sharesNumber: state.data.shares,
