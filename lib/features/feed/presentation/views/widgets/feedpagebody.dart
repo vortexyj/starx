@@ -40,7 +40,7 @@ class FeedPageBody extends StatelessWidget {
                   ),
                 ),
                 //scrollpostBoxList
-                const CustomSilverList(),
+                CustomSilverList(),
               ],
             ),
           ),

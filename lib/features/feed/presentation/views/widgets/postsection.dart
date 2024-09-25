@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:starx/core/utils/assets.dart';
 import 'package:starx/core/utils/styles.dart';
 import 'package:starx/features/feed/presentation/views/widgets/custompostinfo.dart';
 import 'package:starx/features/feed/presentation/views/widgets/postactionpart.dart';
@@ -62,21 +61,21 @@ class PostBox extends StatelessWidget {
               },
               fit: BoxFit.contain,
             ),
-            const Padding(
-              padding: EdgeInsets.all(15.0),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
               child: Center(
                 child: Column(
                   children: [
                     PostInfo(
-                      userName: 'youssefjehad',
+                      userName: userName,
                       date: '2 days ago',
-                      profileImage: AssetsData.testPhoto,
+                      profileImage: image,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     PostActionsPart(
-                      likesNumber: 120,
-                      commentsNumber: 20,
-                      sharesNumber: 4,
+                      likesNumber: likesNumber,
+                      commentsNumber: commentsNumber,
+                      sharesNumber: sharesNumber,
                     )
                   ],
                 ),

@@ -16,7 +16,7 @@ class CreatePostRepoImp extends CreatPostRepo {
           .collection('Posts')
           .doc(user!.uid)
           .collection('Numbers')
-          .doc('2')
+          .doc('5')
           .get();
 
       // final postData = snapshot.data().map((data)=> data() as Map<String, dynamic>)

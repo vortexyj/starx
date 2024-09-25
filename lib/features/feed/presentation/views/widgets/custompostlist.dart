@@ -1,15 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:starx/core/utils/assets.dart';
 import 'package:starx/features/feed/presentation/manager/CreatePostCubit/create_post_cubit.dart';
 import 'package:starx/features/feed/presentation/views/widgets/customfailurepostview.dart';
 import 'package:starx/features/feed/presentation/views/widgets/customloadingpostview.dart';
 import 'package:starx/features/feed/presentation/views/widgets/postsection.dart';
 
+// ignore: must_be_immutable
 class CustomSilverList extends StatelessWidget {
-  const CustomSilverList({
+  CustomSilverList({
     super.key,
   });
+  final user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,9 @@ class CustomSilverList extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: PostBox(
-                    userNamee: state.data.userName,
+                    userName: state.data.userName,
                     date: '2hr ago',
-                    image: state.data.image,
+                    image: state.data.profileImage,
                     likesNumber: state.data.likes,
                     commentsNumber: state.data.comments,
                     sharesNumber: state.data.shares,
