@@ -12,6 +12,28 @@ class CreatePostRepoImp extends CreatPostRepo {
   @override
   Future<Either<Failure, PostModel>> loadPost() async {
     try {
+      final usersCollectionRef = FirebaseFirestore.instance.collection("users");
+
+      try {
+        QuerySnapshot querySnapshot = await usersCollectionRef.get();
+
+        // Iterate through each document
+        for (var doc in querySnapshot.docs) {
+          // Convert document data to a Map
+          Map<String, dynamic> userData = doc.data() as Map<String, dynamic>;
+
+          // Convert each field to a string
+          userData.forEach(
+            (key, value) {
+              String dataAsString = value.toString();
+              print('heyyy $key: $dataAsString');
+            },
+          );
+        }
+      } catch (e) {
+        print('Error fetching users: $e');
+      }
+
       final DocumentSnapshot<Map<String, dynamic>> snapshot = await _db
           .collection('Posts')
           .doc(user!.uid)
