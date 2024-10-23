@@ -37,34 +37,6 @@ class Addpostrepoimp extends Addpostrepo {
         // ... (rest of your code)
         return right(urlDownload);
 
-      // // 3. Get user data from Firestore
-      // final userSnapshot =
-      // await fireStoreRef.collection('Users').doc(user!.uid).get();
-      // if (!userSnapshot.exists) {
-      //   return left(LoginFailures('User not found'));
-      // }
-      // final userModel = UserModel.fromMap(userSnapshot.data()!);
-
-      // 4. Get the last post number synchronously
-      // final postSnapshot = await postRef.child(user!.uid).get();
-      // int counter = 0;
-      //
-      // for (var child in postSnapshot.children) {
-      //   counter = int.parse(child.child('Number').value.toString());
-      // }
-
-      // // 5. Create a new post in Realtime Database
-      // await postRef.child(user!.uid).child((1).toString()).set({
-      //   'comments': comments,
-      //   'date': DateTime.now().toString(), // Fix for DateTime usage
-      //   'imageURL': 'urlDownload',
-      //   'likes': likes,
-      //   'profilePicture': 'userModel.photo',
-      //   'shares': shares,
-      //   'userName': 'userModel.username',
-      // });
-
-
     } on PlatformException catch (e) {
       return left(LoginFailures('PlatformException: ${e.message}'));
     } catch (e) {
@@ -72,6 +44,34 @@ class Addpostrepoimp extends Addpostrepo {
     }
   }
 }
+
+// // 3. Get user data from Firestore
+// final userSnapshot =
+// await fireStoreRef.collection('Users').doc(user!.uid).get();
+// if (!userSnapshot.exists) {
+//   return left(LoginFailures('User not found'));
+// }
+// final userModel = UserModel.fromMap(userSnapshot.data()!);
+
+// 4. Get the last post number synchronously
+// final postSnapshot = await postRef.child(user!.uid).get();
+// int counter = 0;
+//
+// for (var child in postSnapshot.children) {
+//   counter = int.parse(child.child('Number').value.toString());
+// }
+
+// // 5. Create a new post in Realtime Database
+// await postRef.child(user!.uid).child((1).toString()).set({
+//   'comments': comments,
+//   'date': DateTime.now().toString(), // Fix for DateTime usage
+//   'imageURL': 'urlDownload',
+//   'likes': likes,
+//   'profilePicture': 'userModel.photo',
+//   'shares': shares,
+//   'userName': 'userModel.username',
+// });
+
 
 
 
