@@ -46,6 +46,14 @@ android {
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
     }
+    dependencies {
+        // Add the Firebase BOM (Recommended)
+        implementation platform('com.google.firebase:firebase-bom:32.0.0')
+
+        // Add Firebase dependencies
+        implementation 'com.google.firebase:firebase-storage'
+        implementation 'com.google.firebase:firebase-database' // If using Realtime Database
+    }
 
     buildTypes {
         release {

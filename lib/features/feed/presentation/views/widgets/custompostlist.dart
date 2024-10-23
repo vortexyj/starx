@@ -26,11 +26,11 @@ class CustomSilverList extends StatelessWidget {
                   child: PostBox(
                     userName: state.data.userName,
                     date: '2hr ago',
-                    image: state.data.profileImage,
+                    image: state.data.profilePicture,
                     likesNumber: state.data.likes,
                     commentsNumber: state.data.comments,
                     sharesNumber: state.data.shares,
-                    imageUrl: state.data.image,
+                    imageUrl: state.data.imageURL,
                   ),
                 ); // Replace this with your item widget
               },

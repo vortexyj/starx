@@ -10,10 +10,8 @@ class CreatePostCubit extends Cubit<CreatePostState> {
     emit(CreatePostLoading());
     var result = await CreatePostRepoImp().loadPost();
     result.fold((err) {
-      print('i am here before the failure data');
       emit(CreatePostFailure(err.toString()));
     }, (data) {
-      print('i am here before the success cubit data');
       emit(CreatePostSuccess(data));
     });
   }

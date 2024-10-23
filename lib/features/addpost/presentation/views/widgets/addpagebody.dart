@@ -25,6 +25,13 @@ class AddPageBody extends StatelessWidget {
             duration: const Duration(seconds: 5),
           ));
         }
+        else{
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            backgroundColor: ColorStyle.accentStroke,
+            content: Text('Loading'),
+            duration:  Duration(seconds: 5),
+          ));
+        }
       },
       child: Scaffold(
         appBar: AppBar(
