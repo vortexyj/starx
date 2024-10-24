@@ -16,7 +16,7 @@ class Addpostrepoimp extends Addpostrepo {
   final ImagePicker _picker = ImagePicker();
   File? imagee;
   final FirebaseFirestore fireStoreRef = FirebaseFirestore.instance;
-  final DatabaseReference postRef = FirebaseDatabase.instance.ref(kPost);
+  final DatabaseReference postRef = FirebaseDatabase.instance.ref(AppValuesPost.kPost);
 
   @override
   Future<Either<Failure, dynamic>> addPhoto(
@@ -40,9 +40,9 @@ class Addpostrepoimp extends Addpostrepo {
       }
       final userModel = UserModel.fromMap(userSnapshot.data()!);
 
-// 4.Get the last post number synchronously
+        // 4.Get the last post number from realtimedb
       try {
-        // Get the last number under the userUID
+        // Get the last number under the userUID from realtimedb
         DatabaseEvent event = await postRef
             .child(currentUser.uid)
             .orderByKey()

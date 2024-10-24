@@ -17,22 +17,24 @@ class CustomSilverList extends StatelessWidget {
       builder: (context, state) {
         if (state is CreatePostSuccess) {
           return SliverList(
+
             delegate: SliverChildBuilderDelegate(
+                childCount:state.data.length ,
               (context, index) {
+
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: PostBox(
-                    userName: 'Youssefjehad',
-                    date: '2hr ago',
-                    image: AssetsData.profiletestPhoto,
-                    likesNumber: state.data.likes,
-                    commentsNumber: state.data.comments,
-                    sharesNumber: state.data.shares,
-                    imageUrl: state.data.image,
+                    userName: state.data[index].userName,
+                    date: state.data[index].date,
+                    profilePicture: state.data[index].profilePicture,
+                    likesNumber: state.data[index].likes,
+                    commentsNumber: state.data[index].comments,
+                    sharesNumber: state.data[index].shares,
+                    imageUrl: state.data[index].image,
                   ),
                 ); // Replace this with your item widget
               },
-              childCount: 30, // Number of items in the list
             ),
           );
         } else if (state is CreatePostFailure) {
