@@ -11,7 +11,7 @@ class PostBox extends StatelessWidget {
     super.key,
     required this.userName,
     required this.date,
-    required this.image,
+    required this.profilePicture,
     required this.likesNumber,
     required this.commentsNumber,
     required this.sharesNumber,
@@ -19,7 +19,7 @@ class PostBox extends StatelessWidget {
   });
   final String userName;
   final String date;
-  final String image;
+  final String profilePicture;
   final int likesNumber;
   final int commentsNumber;
   final int sharesNumber;
@@ -62,21 +62,21 @@ class PostBox extends StatelessWidget {
               },
               fit: BoxFit.contain,
             ),
-            const Padding(
-              padding: EdgeInsets.all(15.0),
+             Padding(
+              padding: const EdgeInsets.all(15.0),
               child: Center(
                 child: Column(
                   children: [
                     PostInfo(
-                      userName: 'youssefjehad',
-                      date: '2 days ago',
-                      profileImage: AssetsData.testPhoto,
+                      userName: userName,
+                      date: date.substring(0, 10),
+                      profileImage: profilePicture,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     PostActionsPart(
-                      likesNumber: 120,
-                      commentsNumber: 20,
-                      sharesNumber: 4,
+                      likesNumber: likesNumber,
+                      commentsNumber: commentsNumber,
+                      sharesNumber: sharesNumber,
                     )
                   ],
                 ),
