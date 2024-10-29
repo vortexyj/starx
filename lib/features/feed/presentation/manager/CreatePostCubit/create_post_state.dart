@@ -7,7 +7,7 @@ final class CreatePostInitial extends CreatePostState {}
 final class CreatePostLoading extends CreatePostState {}
 
 final class CreatePostSuccess extends CreatePostState {
-  final PostModel data;
+  final List<PostModel> data;
 
   CreatePostSuccess(this.data);
 }
