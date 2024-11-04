@@ -52,7 +52,7 @@ class LoadingPostView extends StatelessWidget {
                       PostInfo(
                         userName: 'UserName',
                         date: '2 days ago',
-                        profileImage: AssetsData.testPhoto,
+                        profileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7zGGDfbBb5uIXttFWx0AdWIQJce10XdjtMw&s',
                       ),
                       Spacer(),
                       PostActionsPart(

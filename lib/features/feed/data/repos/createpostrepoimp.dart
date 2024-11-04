@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dartz/dartz_unsafe.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:starx/core/errors/failure.dart';
@@ -17,73 +16,81 @@ class CreatePostRepoImp extends CreatPostRepo {
   final ref = FirebaseDatabase.instance.ref(AppValuesPost.kPost);
   StreamSubscription? _streamSubscription;
   PostModel? postModel;
+
   //data list contain data
   List<PostModel> data = [];
   List<String> users = [];
+
   @override
-  Future<Either<Failure,List <PostModel>>> loadPost() async {
+  Future<Either<Failure, List<PostModel>>> loadPost() async {
+    data.clear();
     // get all the users to filter them
-     try{
-       // Reference to the "Posts" node in the database
-       DatabaseReference postsRef = FirebaseDatabase.instance.ref().child('Posts');
-       // Get data snapshot from the "Posts" node
-       DataSnapshot snapshot = await postsRef.get();
-       if (snapshot.exists) {
-         Map<dynamic, dynamic>? data = snapshot.value as Map<dynamic, dynamic>?;
-         if (data != null) {
-           // Iterate through each key in the map, which are the userUIDs
-           data.forEach((key, value) {
-             users.add(key); // Add each userUID to the list
-           });
-         }
-       }
-       //
-       // _streamSubscription = FirebaseDatabase.instance.ref().child(AppValuesPost.kPost)
-       //     .onValue
-       //     .listen((DatabaseEvent event) {
-       //   users.clear();
-       //   for (var child in event.snapshot.children) {
-       //     String userUID = child.key ?? "Unknown UID";
-       //     users.add(userUID);
-       //   }
-       // });
-     } on FirebaseException catch (e) {
-    return left(RandomError(e.toString()));
+    try {
+      // Reference to the "Posts" node in the database
+      DatabaseReference postsRef =
+          FirebaseDatabase.instance.ref().child('Posts');
+      // Get data snapshot from the "Posts" node
+      DataSnapshot snapshot = await postsRef.get();
+      if (snapshot.exists) {
+        Map<dynamic, dynamic>? data = snapshot.value as Map<dynamic, dynamic>?;
+        if (data != null) {
+          // Iterate through each key in the map, which are the userUIDs
+          data.forEach((key, value) {
+            users.add(key); // Add each userUID to the list
+          });
+        }
+      }
+    } on FirebaseException catch (e) {
+      return left(RandomError(e.toString()));
     }
-    for (var user in users ){
-       if (user != currentUser.toString()){
-         try {_streamSubscription = ref
-             .child(user)
-             .onValue
-             .listen((DatabaseEvent event) {
-               data.clear();
-           for (var child in event.snapshot.children) {
-             postModel =  PostModel(
-               comments:int.parse(child.child(AppValuesPost.kComments).value.toString()),
-               likes: int.parse(child.child(AppValuesPost.kLikes).value.toString()),
-               shares: int.parse(child.child(AppValuesPost.kShares).value.toString()),
-               image: child.child(AppValuesPost.kImageUrl).value.toString(),
-               userName: child.child(AppValuesPost.kUserName).value.toString(),
-               profilePicture: child.child(AppValuesPost.kProfilePicture).value.toString(),
-               date: child.child(AppValuesPost.kDate).value.toString(),
-             );
-             data.add(postModel!);
-           }
-         });
-         } on FirebaseException catch (e) {
-           return left(RandomError(e.toString()));
-         }
+    for (var user in users) {
+      if (user != currentUser.toString()) {
+        try {
+          _streamSubscription =
+              ref.child(user).limitToLast(1).onValue.listen((DatabaseEvent event) {
+            for (var child in event.snapshot.children) {
+              postModel = PostModel(
+                comments: int.parse(
+                    child.child(AppValuesPost.kComments).value.toString()),
+                likes: int.parse(
+                    child.child(AppValuesPost.kLikes).value.toString()),
+                shares: int.parse(
+                    child.child(AppValuesPost.kShares).value.toString()),
+                image: child.child(AppValuesPost.kImageUrl).value.toString(),
+                userName: child.child(AppValuesPost.kUserName).value.toString(),
+                profilePicture:
+                    child.child(AppValuesPost.kProfilePicture).value.toString(),
+                date: child.child(AppValuesPost.kDate).value.toString(),
+              );
+              data.add(postModel!);
+            }
+          });
+        } on FirebaseException catch (e) {
+          return left(RandomError(e.toString()));
+        }
+      } else {
+        continue;
+      }
+    }
 
-       }
-     }
-
-      return right(data);
+    return right(data);
   }
+
   void dispose() {
     _streamSubscription?.cancel();
   }
 }
 
+//
+// _streamSubscription = FirebaseDatabase.instance.ref().child(AppValuesPost.kPost)
+//     .onValue
+//     .listen((DatabaseEvent event) {
+//   users.clear();
+//   for (var child in event.snapshot.children) {
+//     String userUID = child.key ?? "Unknown UID";
+//     users.add(userUID);
+//   }
+// });
 
 // final DocumentSnapshot<Map<String, dynamic>> snapshot = await _db
 //     .collection('Posts')

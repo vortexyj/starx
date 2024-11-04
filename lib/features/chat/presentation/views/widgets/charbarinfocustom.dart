@@ -27,7 +27,7 @@ class CustomChatBarInfo extends StatelessWidget {
         image: const DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(
-            AssetsData.backgroundchat,
+            AssetsData.backgroundChat,
           ),
         ),
       ),

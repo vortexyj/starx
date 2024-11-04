@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:starx/core/utils/colors.dart';
 import 'package:starx/core/utils/styles.dart';
@@ -20,9 +21,18 @@ class PostInfo extends StatelessWidget {
           height: 40,
           width: 40,
           child: ClipOval(
-            child: Image.asset(
-              profileImage,
-              fit: BoxFit.fill,
+            child: CachedNetworkImage(
+              height: double.infinity,
+              width: double.infinity,
+              imageUrl: profileImage,
+              errorWidget: (context, url, error) {
+                return
+                    const Icon(
+                      Icons.error_outline,
+                      size: 70,
+                    );
+              },
+              fit: BoxFit.contain,
             ),
           ),
         ),

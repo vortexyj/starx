@@ -60,7 +60,7 @@ class FailurePostView extends StatelessWidget {
                   PostInfo(
                     userName: 'UserName',
                     date: 'days ago',
-                    profileImage: AssetsData.testPhoto,
+                    profileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7zGGDfbBb5uIXttFWx0AdWIQJce10XdjtMw&s',
                   ),
                   Spacer(),
                   PostActionsPart(

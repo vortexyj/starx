@@ -14,29 +14,66 @@ class CustomSilverList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CreatePostCubit, CreatePostState>(
+      buildWhen: (previous, current) {
+        if (previous.runtimeType != current.runtimeType) {
+          return true;
+        }
+
+        if (previous is CreatePostSuccess && current is CreatePostSuccess) {
+          // Compare the data property in CreatePostSuccess
+          return previous.data != current.data;
+        }
+        return false;
+      },
       builder: (context, state) {
         if (state is CreatePostSuccess) {
-          return SliverList(
+          if(state.data.isNotEmpty ){
+            return SliverList(
 
-            delegate: SliverChildBuilderDelegate(
+              delegate: SliverChildBuilderDelegate(
                 childCount:state.data.length ,
-              (context, index) {
+                    (context, index) {
 
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: PostBox(
-                    userName: state.data[index].userName,
-                    date: state.data[index].date,
-                    profilePicture: state.data[index].profilePicture,
-                    likesNumber: state.data[index].likes,
-                    commentsNumber: state.data[index].comments,
-                    sharesNumber: state.data[index].shares,
-                    imageUrl: state.data[index].image,
-                  ),
-                ); // Replace this with your item widget
-              },
-            ),
-          );
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: PostBox(
+                      userName: state.data[index].userName,
+                      date: state.data[index].date,
+                      profilePicture: state.data[index].profilePicture,
+                      likesNumber: state.data[index].likes,
+                      commentsNumber: state.data[index].comments,
+                      sharesNumber: state.data[index].shares,
+                      imageUrl: state.data[index].image,
+                    ),
+                  ); // Replace this with your item widget
+                },
+              ),
+            );
+          }
+          else{
+            return SliverList(
+
+              delegate: SliverChildBuilderDelegate(
+                childCount:state.data.length ,
+                    (context, index) {
+
+                  return const Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: PostBox(
+                      userName: '',
+                      date: '',
+                      profilePicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7zGGDfbBb5uIXttFWx0AdWIQJce10XdjtMw&s',
+                      likesNumber: 0,
+                      commentsNumber: 0,
+                      sharesNumber: 0,
+                      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7zGGDfbBb5uIXttFWx0AdWIQJce10XdjtMw&s',
+                    ),
+                  ); // Replace this with your item widget
+                },
+              ),
+            );
+          }
+
         } else if (state is CreatePostFailure) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(

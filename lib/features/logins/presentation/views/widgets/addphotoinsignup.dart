@@ -12,7 +12,7 @@ class AddPhotoInSignUp extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: 90, child: Image.asset(AssetsData.addPhoto)),
+        SizedBox(height: 90, child: Image.asset(AssetsData.testPhoto)),
         Text(
           'Add Photo',
           style: Styles.body16
